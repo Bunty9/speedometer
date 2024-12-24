@@ -59,9 +59,9 @@ wss.on("connection", (ws) => {
     });
 });
 
-//upgrate http request to ws connection for /speed
+//upgrate http request to ws connection for /speedometer
 wsserver.on("upgrade", (req, socket, head) => {
-    if (req.url === "/speed") {
+    if (req.url === "/speedometer") {
         wss.handleUpgrade(req, socket, head, (ws) => {
             wss.emit("connection", ws, req);
         });

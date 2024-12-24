@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const port = 'ws://localhost:5000/speed'
+const port = 'ws://localhost:5000/speedometer'
 const socket = new WebSocket(port);
 
 socket.on('open', () => {
