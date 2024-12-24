@@ -6,9 +6,10 @@ import cookieParser from "cookie-parser";
 const PORT = process.env.PORT || 5000;
 import speedRouter from "./src/router/speedometer-routes";
 import publicRouter from "./src/router/public-routes";
-import { createValue } from "./src/controllers/speedometer-controller";
+import { createValue, deleteStaleValues } from "./src/controllers/speedometer-controller";
 import http from "http"
 import WebSocket from "ws";
+import cron from 'node-cron';
 
 const app = express();
 
@@ -69,6 +70,17 @@ wsserver.on("upgrade", (req, socket, head) => {
         socket.destroy(); // Reject connections to other routes
     }
 });
+
+//scedule a cron job to run every day at midnight to delete stale values ( more than 3 days )
+cron.schedule('0 0 * * *', async () => {
+  console.log('Deleting stale values...');
+  try {
+    await deleteStaleValues(); // Call the deleteStaleValues function
+  } catch (error) {
+    console.error('Failed to delete stale values:', error);
+  }
+});
+
 
 const startServer = async () => {
     try {

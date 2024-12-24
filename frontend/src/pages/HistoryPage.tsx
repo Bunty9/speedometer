@@ -8,7 +8,7 @@ import HistoricalDataGrid, { HistoricalItem } from '../components/HistoricalData
 
 
 const HistoryPage = () => {
-  const [startDate, setStartDate] = useState<Dayjs | null>(dayjs(Date.now()));
+  const [startDate, setStartDate] = useState<Dayjs | null>(dayjs(Date.now()- 3 * 24 * 60 * 60 * 1000));
   const [endDate, setEndDate] = useState<Dayjs | null>(dayjs(Date.now()));
   const [history, setHistory] = useState<HistoricalItem[]>([]);
 

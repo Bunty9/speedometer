@@ -28,9 +28,9 @@ export const getValues = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteStaleValues = async (req: Request, res: Response) => {
+export const deleteStaleValues = async () => {
     try {
-        const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000);
+        const threeDaysAgo = new Date(Date.now() - 3 * 24 * 60 * 60 * 1000); //stale values more than 3 days
         const deleted = await SpeedometerValues.destroy({
             where: {
                 createdAt: {
@@ -38,8 +38,8 @@ export const deleteStaleValues = async (req: Request, res: Response) => {
                 },
             },
         });
-        res.status(200).json({ message: `Deleted ${deleted} stale values.` });
+        console.log(deleted)
     } catch (error) {
-        res.status(500).json({ message: "Failed to delete stale values", error });
+        console.log({ message: "Failed to delete stale values", error });
     }
 };
