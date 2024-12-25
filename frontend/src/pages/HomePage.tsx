@@ -4,7 +4,6 @@ import {
   GaugeValueArc,
   GaugeReferenceArc,
   useGaugeState,
-  gaugeClasses,
 } from '@mui/x-charts/Gauge';
 import { Box, CircularProgress, Typography } from '@mui/material';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
