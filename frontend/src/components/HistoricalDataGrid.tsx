@@ -17,6 +17,22 @@ interface RowData {
   value: number;
 }
 
+const gridStyle = {
+          boxShadow: 2,
+          border: 2,
+          borderColor: 'white',
+          color: 'white',
+          '& .MuiDataGrid-cell:hover': {
+            color: '#1976d2',
+          },
+          '& .MuiDataGrid-columnHeaderTitleContainerContent': {
+            color: 'black',
+          },
+          '& .MuiToolbar-root': {
+            color: 'white',
+          },
+        }
+
 const HistoricalDataGrid: React.FC<HistoricalDataGridProps> = ({ history }) => {
   // Define the columns for the DataGrid
   const columns: GridColDef[] = [
@@ -32,7 +48,7 @@ const HistoricalDataGrid: React.FC<HistoricalDataGridProps> = ({ history }) => {
   }));
 
   return (
-    <Box sx={{ height: 400, width: '100%' }}>
+    <Box sx={{ height: 600, width: '100%' }}>
       {history.length > 0 ? (
         <DataGrid
           rows={rows}
@@ -44,6 +60,7 @@ const HistoricalDataGrid: React.FC<HistoricalDataGridProps> = ({ history }) => {
               },
             },
           }}
+          sx={gridStyle}
         />
       ) : (
         <Typography>No data available for the selected date range.</Typography>

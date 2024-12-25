@@ -72,12 +72,12 @@ const Homepage = () => {
 
   return (
     <div>
-      <Typography variant="h4">Welcome to the Home Page</Typography>
+      <Typography paddingTop={10}  variant="h4" width={'100%'} textAlign={'center'}>Welcome to the Home Page</Typography>
       <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
-        height="100vh"
+        height="100%"
         width="100%"
         textAlign='center'
       >
@@ -85,7 +85,8 @@ const Homepage = () => {
         {loading ? (
           <CircularProgress />
         ) : (
-          <Box >
+          <Box marginBottom={40}
+          >
             <GaugeContainer
               width={300} height={300}
               value={speed}
