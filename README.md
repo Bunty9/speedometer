@@ -30,6 +30,41 @@ Follow these steps to set up and explore the Speedometer Application:
 
     Start the frontend and backend server. Run this command within the main `speedometer` directory. The server will be live at the specified port.
 
+## Architecture Block Diagram 
+```bash
+---------------------------------------------
+|                  Frontend                |
+|                                          |
+|  - React app with WebSocket connection   |
+|  - Displays real-time speedometer data   |
+|  - History for speedometer data          |
+---------------------------------------------
+               |          ▲
+               |          |
+         WebSocket     WebSocket
+               |          |
+---------------------------------------------
+|                   Backend                |
+|                                          |
+|  - Node.js server                        |
+|  - WebSocket server for real-time data   |
+|  - Random speed generator simulating     |
+|    sensor input                          |
+|  - Saves data to PostgreSQL via Sequelize|
+---------------------------------------------
+               |          ▲
+               |          |
+            Sequelize   Sequelize
+               |          |
+---------------------------------------------
+|                  Database                |
+|                                          |
+|        PostgreSQL for storing:           |
+|  - Speed data                            |
+|  - Timestamps                            |
+---------------------------------------------
+```
+
 ## Directory Structure
 
 ```bash
