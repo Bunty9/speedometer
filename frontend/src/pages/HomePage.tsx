@@ -1,19 +1,22 @@
 import { useEffect, useState } from 'react';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 import { Box, CircularProgress, Typography } from '@mui/material';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+
 
 const Homepage = () => {
   const [speed, setSpeed] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const socket = new WebSocket('ws://localhost:5000/speedometer');
+    // console.log("backend host url in frontend env",BACKEND_URL)
+    const socket = new WebSocket(`ws://${BACKEND_URL}/speedometer`);
 
     socket.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
         const speedValue = parseFloat(data.speed);
-        console.log(data);
+        // console.log(data);
         setSpeed(speedValue);
         setLoading(false);
       } catch (error) {

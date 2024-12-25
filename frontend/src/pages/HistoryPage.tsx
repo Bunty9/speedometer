@@ -5,6 +5,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import HistoricalDataGrid, { HistoricalItem } from '../components/HistoricalDataGrid';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 
 const HistoryPage = () => {
@@ -13,7 +14,7 @@ const HistoryPage = () => {
   const [history, setHistory] = useState<HistoricalItem[]>([]);
 
   const handleFetchData = async () => {
-    const response = await fetch(`http://localhost:5000/api/speed/getvalues?startDate=${startDate}&endDate=${endDate}`);
+    const response = await fetch(`http://${BACKEND_URL}/api/speed/getvalues?startDate=${startDate}&endDate=${endDate}`);
     const data = await response.json();
     setHistory(data);
   };
