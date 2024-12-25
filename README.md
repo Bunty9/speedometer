@@ -37,36 +37,36 @@ speedometer
 │
 ├── frontend
 │   ├── public
-│   │   ├── index.html                # HTML entry point
+│   │   ├── index.html                  # HTML entry point
 │   ├── src
 │   │   ├── components
-│   │   │   ├── Header.tsx        # Header component 
-│   │   │   ├── HistorialDataGrid.tsx            # History page component for displaying historical data (data grid Material UI)
+│   │   │   ├── Header.tsx                   # Header component 
+│   │   │   ├── HistorialDataGrid.tsx      # History page component for displaying historical data (data grid Material UI)
 │   │   ├── pages
-│   │   │   ├── HistoryPage.tsx          # Data History Page
-│   │   │   ├── HomePage.tsx                # Home Page Speedometer gauge component (Material UI)
-│   │   ├── App.tsx                    # Main React component 
-│   │   ├── routes-config.tsx                    # React Router for handling routing
-│   │   ├── main.tsx                  # Entry point for React app
-│   ├── .env                      # Environment variables (e.g., BACKEND_URL)
-│   ├── Dockerfile                      # Docker configration for frontend
+│   │   │   ├── HistoryPage.tsx             # Data History Page
+│   │   │   ├── HomePage.tsx             # Home Page Speedometer gauge component (Material UI)
+│   │   ├── App.tsx                             # Main React component 
+│   │   ├── routes-config.tsx                # React Router for handling routing
+│   │   ├── main.tsx                             # Entry point for React app
+│   ├── .env                                  # Environment variables (e.g., BACKEND_URL)
+│   ├── Dockerfile                       # Docker configration for frontend
 │   └── package.json                  # Frontend dependencies and scripts
 │
 ├── backend
-│   ├── index.ts                     # Express server setup
+│   ├── index.ts                                         # Express server setup
 │   ├── src
 │   │   ├── controllers
 │   │   │   ├── speedometer-controller.ts        # Controller handling speedometer-related API routes
 │   │   ├── router
-│   │   │   ├── public-routes.ts            # Routes for public API endpoints for testing
+│   │   │   ├── public-routes.ts                        # Routes for public API endpoints for testing
 │   │   │   ├── speedometer-routes.ts            # Routes for speedometer-related API endpoints
 │   │   ├── models
 │   │   │   ├── speedometer-model.ts             # PostgreSQL model for speed data
 │   │   ├── service
-│   │   │   ├── db-service.ts             # PostgreSQL db connection handler
+│   │   │   ├── db-service.ts                               # PostgreSQL db connection handler
 │   ├── test
 │   │   ├── socket-test.js              # WebSocket test script for testing
-│   ├── .env                          # Backend environment variables (DB_URL)
+│   ├── .env                                    # Backend environment variables (DB_URL)
 │   ├── Dockerfile                          # Backend Docker configration
 │   └── package.json                  # Backend dependencies and scripts
 │
