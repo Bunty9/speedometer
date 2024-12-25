@@ -1,8 +1,37 @@
 import { useEffect, useState } from 'react';
-import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
+import {
+  GaugeContainer,
+  GaugeValueArc,
+  GaugeReferenceArc,
+  useGaugeState,
+  gaugeClasses,
+} from '@mui/x-charts/Gauge';
 import { Box, CircularProgress, Typography } from '@mui/material';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
+function GaugePointer() {
+  const { valueAngle, outerRadius, cx, cy } = useGaugeState();
+
+  if (valueAngle === null) {
+    // No value to display
+    return null;
+  }
+
+  const target = {
+    x: cx + outerRadius * Math.sin(valueAngle),
+    y: cy - outerRadius * Math.cos(valueAngle),
+  };
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={5} fill="red" />
+      <path
+        d={`M ${cx} ${cy} L ${target.x} ${target.y}`}
+        stroke="red"
+        strokeWidth={3}
+      />
+    </g>
+  );
+}
 
 const Homepage = () => {
   const [speed, setSpeed] = useState<number>(0);
@@ -58,20 +87,19 @@ const Homepage = () => {
           <CircularProgress />
         ) : (
           <Box >
-            <Gauge
+            <GaugeContainer
               width={300} height={300}
               value={speed}
               startAngle={-110}
               endAngle={110}
               innerRadius="80%"
               outerRadius="100%"
-              sx={{
-                [`& .${gaugeClasses.valueText}`]: {
-                  fontSize: 30,
-                  transform: 'translate(0px, 0px)',
-                },
-              }}
-            />
+            >
+              <GaugeReferenceArc />
+              <GaugeValueArc />
+              <GaugePointer />
+            </GaugeContainer>
+            <Typography variant="h5">{speed}</Typography>
             <Typography variant="h5">Realtime Speed</Typography>
           </Box>
         )}

@@ -1,10 +1,10 @@
 ## Speedometer Sensor ⏲️ Application 
 
 A real-time speedometer simulation application that streams random speed data via WebSockets, stores it in a PostgreSQL database, and displays it on the frontend.
-- Real-Time Data Streaming: Simulated speed data generated every second for multiple sensors.
+- Real-Time Data Streaming: Simulated speed data generated every second.
 - WebSocket Integration: Broadcasts live speed data to connected clients over WebSocket.
 - Database Storage: Stores all generated speed data in a PostgreSQL database.
-- REST API: Provides endpoints for retrieving and managing stored speed data.
+- REST API: Provides endpoints for retrieving stored speed data.
 - Data Retention: Automatically deletes stale data older than 3 days.
 - Frontend Integration: Visualizes real-time speed updates on a speedometer UI.
 - Dockerized Deployment: Fully containerized application for easy setup and deployment.
