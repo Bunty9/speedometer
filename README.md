@@ -1,6 +1,7 @@
-## Speedometer Sensor ⏲️ Application 
+## Speedometer Sensor ⏲️ Application
 
 A real-time speedometer simulation application that streams random speed data via WebSockets, stores it in a PostgreSQL database, and displays it on the frontend.
+
 - Real-Time Data Streaming: Simulated speed data generated every second.
 - WebSocket Integration: Broadcasts live speed data to connected clients over WebSocket.
 - Database Storage: Stores all generated speed data in a PostgreSQL database.
@@ -9,28 +10,28 @@ A real-time speedometer simulation application that streams random speed data vi
 - Frontend Integration: Visualizes real-time speed updates on a speedometer UI.
 - Dockerized Deployment: Fully containerized application for easy setup and deployment.
 
-
 ## Start Your Server 🚀
 
 Follow these steps to set up and explore the Speedometer Application:
 
 1. **Clone the Repository**:
 
-    ```bash
-    git clone https://github.com/Bunty9/speedometer.git
-    ```
+   ```bash
+   git clone https://github.com/Bunty9/speedometer.git
+   ```
 
-    Clone the repository to your local machine using the provided repository URL.
+   Clone the repository to your local machine using the provided repository URL.
 
 2. **Launch Application in Docker**:
 
-    ```bash
-    docker-compose up --build
-    ```
+   ```bash
+   docker-compose up --build
+   ```
 
-    Start the frontend and backend server. Run this command within the main `speedometer` directory. The server will be live at the specified port.
+   Start the frontend and backend server. Run this command within the main `speedometer` directory. The server will be live at the specified port.
 
-## Architecture Block Diagram 
+## Architecture Block Diagram
+
 ```bash
 ---------------------------------------------
 |                  Frontend                |
@@ -65,6 +66,11 @@ Follow these steps to set up and explore the Speedometer Application:
 ---------------------------------------------
 ```
 
+## Screenshot
+
+![screenshot](screenshots/speedometer.png)
+![screenshot](screenshots/history.png)
+
 ## Directory Structure
 
 ```bash
@@ -75,12 +81,12 @@ speedometer
 │   │   ├── index.html                  # HTML entry point
 │   ├── src
 │   │   ├── components
-│   │   │   ├── Header.tsx                   # Header component 
+│   │   │   ├── Header.tsx                   # Header component
 │   │   │   ├── HistorialDataGrid.tsx      # History page component for displaying historical data (data grid Material UI)
 │   │   ├── pages
 │   │   │   ├── HistoryPage.tsx             # Data History Page
 │   │   │   ├── HomePage.tsx             # Home Page Speedometer gauge component (Material UI)
-│   │   ├── App.tsx                             # Main React component 
+│   │   ├── App.tsx                             # Main React component
 │   │   ├── routes-config.tsx                # React Router for handling routing
 │   │   ├── main.tsx                             # Entry point for React app
 │   ├── .env                                  # Environment variables (e.g., BACKEND_URL)
@@ -111,6 +117,5 @@ speedometer
 ## MIT License 📜
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
 [![https://github.com/Bunty9](https://img.shields.io/badge/Made%20With%20❤️%20By-Bunty9-red)](https://github.com/Bunty9)
